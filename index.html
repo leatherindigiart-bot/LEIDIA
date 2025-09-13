@@ -81,3 +81,96 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <!-- Include Tailwind CSS for a quick and responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-black">
+
+    <!-- Page Header -->
+    <header class="text-center mb-12 mt-8">
+        <!--
+            This image tag is referencing the LEIDIA logo.jpg file.
+            The 'mx-auto' attribute centers the image horizontally.
+            The 'max-w-full' attribute ensures the image does not exceed the container width.
+        -->
+        <img src="LEIDIA logo.jpg" alt="LEIDIA - Leather In Digital Art Logo" class="mx-auto max-w-full h-auto rounded-xl">
+    </header>
+
+    <!-- Gray Bar -->
+    <!--
+        This div creates the gray bar.
+        'bg-gray-700' sets the background color.
+        'w-[30cm]' sets a fixed width of 30cm.
+        'h-[2cm]' sets the height to 2cm.
+        'mx-auto' centers the bar horizontally.
+        'my-8' adds vertical spacing.
+        'rounded-md' adds rounded corners.
+        'flex items-center' makes it a flex container to align items vertically.
+        'px-4' adds horizontal padding to the bar content.
+    -->
+    <div class="bg-gray-700 w-[30cm] h-[2cm] mx-auto my-8 rounded-md flex items-center px-4">
+        <!--
+            This is the "News" button.
+            'text-gray-300' sets the light gray text color.
+            'hover:underline' adds an underline effect on hover.
+            The 'id' is used to identify the button in JavaScript.
+            The 'cursor-pointer' changes the mouse cursor to a pointer on hover.
+            'font-bold' makes the text bold.
+            'mr-4' adds a right margin to separate it from the next button.
+        -->
+        <button id="toggleNewsButton" class="text-gray-300 hover:underline cursor-pointer focus:outline-none font-bold mr-4">News</button>
+        <!--
+            This is the "What's LEIDIA" button.
+            'text-gray-300' sets the light gray text color.
+            'hover:underline' adds an underline effect on hover.
+            The 'id' is used to identify the button in JavaScript.
+            The 'cursor-pointer' changes the mouse cursor to a pointer on hover.
+            'font-bold' makes the text bold.
+        -->
+        <button id="toggleWhatsButton" class="text-gray-300 hover:underline cursor-pointer focus:outline-none font-bold">What's LEIDIA</button>
+    </div>
+
+    <!-- What's LEIDIA Content Section -->
+    <!--
+        This section will be shown/hidden by JavaScript.
+        'mx-auto' centers the section horizontally.
+        'max-w-prose' sets a readable max-width for the text.
+        'mt-8' adds a top margin for spacing.
+        The 'hidden' class is added by default to hide this section on page load.
+    -->
+    <section id="whatsContent" class="mx-auto max-w-prose mt-8 p-4 hidden">
+        <h2 class="text-2xl font-bold mb-4 text-center">What's LEIDIA</h2>
+        <p class="text-gray-300 text-justify">
+            LEIDIA is a project dedicated to exploring the intersection of digital art and textures inspired by leather. Through various artistic mediums, we aim to transform the rich and tactile feeling of leather into stunning visual compositions. Our work delves into the intricate patterns, subtle color variations, and unique character of this material, reinterpreting it in a modern, digital context.
+        </p>
+    </section>
+
+    <!-- JavaScript to toggle the 'What's LEIDIA' content -->
+    <script>
+        // Get the buttons and the content section by their IDs.
+        const toggleWhatsButton = document.getElementById('toggleWhatsButton');
+        const whatsContent = document.getElementById('whatsContent');
+
+        // Add a click event listener to the "What's LEIDIA" button.
+        toggleWhatsButton.addEventListener('click', () => {
+            // Toggle the 'hidden' class on the content section.
+            whatsContent.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
