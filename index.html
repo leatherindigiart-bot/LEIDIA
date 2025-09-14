@@ -13,11 +13,20 @@
             font-family: 'Inter', sans-serif;
         }
     </style>
-    <!-- Remova o importmap, o Vite cuidará disso -->
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "vite": "https://aistudiocdn.com/vite@^7.1.5",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.0.2"
+  }
+}
+</script>
 </head>
 <body>
     <div id="root"></div>
-    <!-- O script agora aponta para o seu arquivo principal .tsx -->
-    <script type="module" src="/index.tsx"></script> 
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
