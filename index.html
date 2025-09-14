@@ -66,9 +66,9 @@
                 'top-full' positions it just below the button.
             -->
             <div class="absolute hidden group-hover:block bg-gray-800 rounded-md p-2 mt-2 w-48 shadow-lg z-10">
-                <button id="toggleNewImagesButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">New</button>
-                <button id="toggleOldImagesButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">Old</button>
-                <button id="toggle3DModelsButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">3D Models</button>
+                <button id="toggleLeggingsButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">Leather Leggings & Pants</button>
+                <button id="toggleSkirtButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">Leather Skirt</button>
+                <button id="toggleBootsButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">Leather Boots</button>
             </div>
         </div>
 
@@ -111,47 +111,35 @@
         This is the main container for the image galleries, hidden by default.
     -->
     <section id="imagesContentContainer" class="hidden">
-        <!-- New Images Gallery Section -->
-        <div id="newImagesContent" class="mx-auto mt-8 p-4" style="width: 50%;">
-            <h2 class="text-2xl font-bold mb-4 text-center text-gray-200">New Image Gallery</h2>
+        <!-- Leather Leggings & Pants Gallery Section -->
+        <div id="leggingsContent" class="mx-auto mt-8 p-4 hidden" style="width: 50%;">
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-200">Leather Leggings & Pants Gallery</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Image 1 -->
+                <!-- Placeholder for images -->
                 <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
-                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=New+Image+1" alt="Placeholder Image 1" class="w-full h-auto rounded-md mb-4">
-                </div>
-                <!-- Image 2 -->
-                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
-                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=New+Image+2" alt="Placeholder Image 2" class="w-full h-auto rounded-md mb-4">
+                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=Leather+Leggings+1" alt="Placeholder Image 1" class="w-full h-auto rounded-md mb-4">
                 </div>
             </div>
         </div>
 
-        <!-- Old Images Gallery Section -->
-        <div id="oldImagesContent" class="mx-auto mt-8 p-4 hidden" style="width: 50%;">
-            <h2 class="text-2xl font-bold mb-4 text-center text-gray-200">Old Image Gallery</h2>
+        <!-- Leather Skirt Gallery Section -->
+        <div id="skirtContent" class="mx-auto mt-8 p-4 hidden" style="width: 50%;">
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-200">Leather Skirt Gallery</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Image 1 -->
+                <!-- Placeholder for images -->
                 <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
-                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=Old+Image+1" alt="Placeholder Image 1" class="w-full h-auto rounded-md mb-4">
-                </div>
-                <!-- Image 2 -->
-                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
-                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=Old+Image+2" alt="Placeholder Image 2" class="w-full h-auto rounded-md mb-4">
+                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=Leather+Skirt+1" alt="Placeholder Image 1" class="w-full h-auto rounded-md mb-4">
                 </div>
             </div>
         </div>
 
-        <!-- 3D Models Gallery Section -->
-        <div id="3dModelsContent" class="mx-auto mt-8 p-4 hidden" style="width: 50%;">
-            <h2 class="text-2xl font-bold mb-4 text-center text-gray-200">3D Models</h2>
+        <!-- Leather Boots Gallery Section -->
+        <div id="bootsContent" class="mx-auto mt-8 p-4 hidden" style="width: 50%;">
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-200">Leather Boots Gallery</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Image 1 -->
+                <!-- Placeholder for images -->
                 <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
-                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=3D+Model+1" alt="Placeholder Image 1" class="w-full h-auto rounded-md mb-4">
-                </div>
-                <!-- Image 2 -->
-                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
-                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=3D+Model+2" alt="Placeholder Image 2" class="w-full h-auto rounded-md mb-4">
+                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=Leather+Boots+1" alt="Placeholder Image 1" class="w-full h-auto rounded-md mb-4">
                 </div>
             </div>
         </div>
@@ -177,15 +165,15 @@
         // Get the buttons and content sections by their IDs.
         const toggleNewsButton = document.getElementById('toggleNewsButton');
         const toggleWhatsButton = document.getElementById('toggleWhatsButton');
-        const toggleNewImagesButton = document.getElementById('toggleNewImagesButton');
-        const toggleOldImagesButton = document.getElementById('toggleOldImagesButton');
-        const toggle3DModelsButton = document.getElementById('toggle3DModelsButton');
+        const toggleLeggingsButton = document.getElementById('toggleLeggingsButton');
+        const toggleSkirtButton = document.getElementById('toggleSkirtButton');
+        const toggleBootsButton = document.getElementById('toggleBootsButton');
         
         const newsContent = document.getElementById('newsContent');
         const imagesContentContainer = document.getElementById('imagesContentContainer');
-        const newImagesContent = document.getElementById('newImagesContent');
-        const oldImagesContent = document.getElementById('oldImagesContent');
-        const models3DContent = document.getElementById('3dModelsContent');
+        const leggingsContent = document.getElementById('leggingsContent');
+        const skirtContent = document.getElementById('skirtContent');
+        const bootsContent = document.getElementById('bootsContent');
         const whatsContent = document.getElementById('whatsContent');
 
         // Function to hide all content sections.
@@ -196,9 +184,9 @@
         };
 
         const hideAllImageSubSections = () => {
-            newImagesContent.classList.add('hidden');
-            oldImagesContent.classList.add('hidden');
-            models3DContent.classList.add('hidden');
+            leggingsContent.classList.add('hidden');
+            skirtContent.classList.add('hidden');
+            bootsContent.classList.add('hidden');
         };
 
         // Add a click event listener to the "News" button.
@@ -214,25 +202,25 @@
         });
 
         // Add click event listeners for the Images submenu.
-        toggleLeather Leggings&PantsImagesButton.addEventListener('click', () => {
+        toggleLeggingsButton.addEventListener('click', () => {
             hideAllSections();
             imagesContentContainer.classList.remove('hidden');
             hideAllImageSubSections();
-            newImagesContent.classList.remove('hidden');
+            leggingsContent.classList.remove('hidden');
         });
 
-        toggleLeather SkirtImagesButton.addEventListener('click', () => {
+        toggleSkirtButton.addEventListener('click', () => {
             hideAllSections();
             imagesContentContainer.classList.remove('hidden');
             hideAllImageSubSections();
-            oldImagesContent.classList.remove('hidden');
+            skirtContent.classList.remove('hidden');
         });
 
-        toggleLeather BootsButton.addEventListener('click', () => {
+        toggleBootsButton.addEventListener('click', () => {
             hideAllSections();
             imagesContentContainer.classList.remove('hidden');
             hideAllImageSubSections();
-            models3DContent.classList.remove('hidden');
+            bootsContent.classList.remove('hidden');
         });
     </script>
 
