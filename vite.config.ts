@@ -9,3 +9,4 @@ export default defineConfig({
   plugins: [react()],
   base: `/${REPO_NAME}/`, // Essencial para o GitHub Pages!
 })
+
