@@ -69,6 +69,7 @@
                 <button id="toggleLeggingsButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">Leather Leggings & Pants</button>
                 <button id="toggleSkirtButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">Leather Skirt</button>
                 <button id="toggleBootsButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">Leather Boots</button>
+                <button id="toggleCatsuitButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">Catsuit</button>
             </div>
         </div>
 
@@ -143,6 +144,17 @@
                 </div>
             </div>
         </div>
+
+        <!-- Catsuit Gallery Section -->
+        <div id="catsuitContent" class="mx-auto mt-8 p-4 hidden" style="width: 50%;">
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-200">Catsuit Gallery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Placeholder for images -->
+                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=Catsuit+1" alt="Placeholder Image 1" class="w-full h-auto rounded-md mb-4">
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- What's LEIDIA Content Section -->
@@ -168,12 +180,14 @@
         const toggleLeggingsButton = document.getElementById('toggleLeggingsButton');
         const toggleSkirtButton = document.getElementById('toggleSkirtButton');
         const toggleBootsButton = document.getElementById('toggleBootsButton');
+        const toggleCatsuitButton = document.getElementById('toggleCatsuitButton');
         
         const newsContent = document.getElementById('newsContent');
         const imagesContentContainer = document.getElementById('imagesContentContainer');
         const leggingsContent = document.getElementById('leggingsContent');
         const skirtContent = document.getElementById('skirtContent');
         const bootsContent = document.getElementById('bootsContent');
+        const catsuitContent = document.getElementById('catsuitContent');
         const whatsContent = document.getElementById('whatsContent');
 
         // Function to hide all content sections.
@@ -187,6 +201,7 @@
             leggingsContent.classList.add('hidden');
             skirtContent.classList.add('hidden');
             bootsContent.classList.add('hidden');
+            catsuitContent.classList.add('hidden');
         };
 
         // Add a click event listener to the "News" button.
@@ -221,6 +236,13 @@
             imagesContentContainer.classList.remove('hidden');
             hideAllImageSubSections();
             bootsContent.classList.remove('hidden');
+        });
+        
+        toggleCatsuitButton.addEventListener('click', () => {
+            hideAllSections();
+            imagesContentContainer.classList.remove('hidden');
+            hideAllImageSubSections();
+            catsuitContent.classList.remove('hidden');
         });
     </script>
 
