@@ -7,33 +7,37 @@ import WhatsLeidiaContent from './components/WhatsLeidiaContent';
 import ImageGallery from './components/ImageGallery';
 import { GALLERY_DATA } from './constants';
 
+const componentMap: Record<View, React.FC<any>> = {
+  [View.News]: NewsContent,
+  [View.About]: WhatsLeidiaContent,
+  [View.Leggings]: ImageGallery,
+  [View.Skirt]: ImageGallery,
+  [View.Boots]: ImageGallery,
+  [View.Catsuit]: ImageGallery,
+};
+
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>(View.News);
 
-  const renderContent = () => {
-    switch (currentView) {
-      case View.News:
-        return <NewsContent />;
-      case View.About:
-        return <WhatsLeidiaContent />;
-      case View.Leggings:
-      case View.Skirt:
-      case View.Boots:
-      case View.Catsuit:
-        const galleryData = GALLERY_DATA[currentView];
-        return <ImageGallery title={galleryData.title} images={galleryData.images} />;
-      default:
-        return <NewsContent />;
-    }
-  };
+  const ContentComponent = componentMap[currentView] || NewsContent;
+  
+  const isGalleryView = [View.Leggings, View.Skirt, View.Boots, View.Catsuit].includes(currentView);
+  const galleryData = isGalleryView ? GALLERY_DATA[currentView] : undefined;
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen font-sans">
+    <div className="bg-black text-white min-h-screen font-sans">
       <div className="container mx-auto p-4">
         <Header />
         <NavBar currentView={currentView} onViewChange={setCurrentView} />
         <main>
-          {renderContent()}
+          {/* FIX: Conditionally render components based on whether they are gallery or content pages.
+              This ensures that props like 'title' and 'images' are only passed to components
+              that expect them (like ImageGallery), resolving the type error. */}
+          {galleryData ? (
+            <ImageGallery title={galleryData.title} images={galleryData.images} />
+          ) : (
+            <ContentComponent />
+          )}
         </main>
       </div>
     </div>
