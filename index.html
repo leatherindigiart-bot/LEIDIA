@@ -50,16 +50,28 @@
             'mr-4' adds a right margin to separate it from the next button.
         -->
         <button id="toggleNewsButton" class="text-gray-300 hover:underline cursor-pointer focus:outline-none font-bold mr-4">News</button>
+
         <!--
-            This is the "Images" button.
-            'text-gray-300' sets the light gray text color.
-            'hover:underline' adds an underline effect on hover.
-            The 'id' is used to identify the button in JavaScript.
-            'cursor-pointer' changes the mouse cursor to a pointer on hover.
-            'font-bold' makes the text bold.
-            'mr-4' adds a right margin to separate it from the next button.
+            This is the "Images" dropdown menu container.
+            'relative' makes it the positioning context for the dropdown.
+            'group' enables the group-hover utility for the dropdown.
         -->
-        <button id="toggleImagesButton" class="text-gray-300 hover:underline cursor-pointer focus:outline-none font-bold mr-4">Images</button>
+        <div class="relative group mr-4">
+            <button class="text-gray-300 hover:underline cursor-pointer focus:outline-none font-bold">Images</button>
+            <!--
+                This is the dropdown menu itself.
+                'absolute' positions it relative to the parent container.
+                'hidden' keeps it hidden by default.
+                'group-hover:block' shows it when the parent is hovered.
+                'top-full' positions it just below the button.
+            -->
+            <div class="absolute hidden group-hover:block bg-gray-800 rounded-md p-2 mt-2 w-48 shadow-lg z-10">
+                <button id="toggleNewImagesButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">New</button>
+                <button id="toggleOldImagesButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">Old</button>
+                <button id="toggle3DModelsButton" class="block w-full text-left py-2 px-4 text-gray-300 hover:bg-gray-700 rounded-md">3D Models</button>
+            </div>
+        </div>
+
         <!--
             This is the "What's LEIDIA" button.
             'text-gray-300' sets the light gray text color.
@@ -94,28 +106,53 @@
         </div>
     </section>
 
-    <!-- Images Content Section -->
+    <!-- Images Content Sections -->
     <!--
-        This section will be shown/hidden by JavaScript.
-        It uses a grid layout to display a gallery of images.
-        'mx-auto' centers the section horizontally.
-        'p-4' adds padding.
-        'hidden' class hides the section by default.
+        This is the main container for the image galleries, hidden by default.
     -->
-    <section id="imagesContent" class="mx-auto mt-8 p-4 hidden" style="width: 50%;">
-        <h2 class="text-2xl font-bold mb-4 text-center text-gray-200">Image Gallery</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Image 1 -->
-            <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
-                <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=Image+1" alt="Placeholder Image 1" class="w-full h-auto rounded-md mb-4">
+    <section id="imagesContentContainer" class="hidden">
+        <!-- New Images Gallery Section -->
+        <div id="newImagesContent" class="mx-auto mt-8 p-4" style="width: 50%;">
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-200">New Image Gallery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Image 1 -->
+                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=New+Image+1" alt="Placeholder Image 1" class="w-full h-auto rounded-md mb-4">
+                </div>
+                <!-- Image 2 -->
+                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=New+Image+2" alt="Placeholder Image 2" class="w-full h-auto rounded-md mb-4">
+                </div>
             </div>
-            <!-- Image 2 -->
-            <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
-                <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=Image+2" alt="Placeholder Image 2" class="w-full h-auto rounded-md mb-4">
+        </div>
+
+        <!-- Old Images Gallery Section -->
+        <div id="oldImagesContent" class="mx-auto mt-8 p-4 hidden" style="width: 50%;">
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-200">Old Image Gallery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Image 1 -->
+                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=Old+Image+1" alt="Placeholder Image 1" class="w-full h-auto rounded-md mb-4">
+                </div>
+                <!-- Image 2 -->
+                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=Old+Image+2" alt="Placeholder Image 2" class="w-full h-auto rounded-md mb-4">
+                </div>
             </div>
-            <!-- Image 3 -->
-            <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
-                <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=Image+3" alt="Placeholder Image 3" class="w-full h-auto rounded-md mb-4">
+        </div>
+
+        <!-- 3D Models Gallery Section -->
+        <div id="3dModelsContent" class="mx-auto mt-8 p-4 hidden" style="width: 50%;">
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-200">3D Models</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Image 1 -->
+                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=3D+Model+1" alt="Placeholder Image 1" class="w-full h-auto rounded-md mb-4">
+                </div>
+                <!-- Image 2 -->
+                <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                    <img src="https://placehold.co/400x400/2a2a2a/ffffff?text=3D+Model+2" alt="Placeholder Image 2" class="w-full h-auto rounded-md mb-4">
+                </div>
             </div>
         </div>
     </section>
@@ -139,17 +176,29 @@
     <script>
         // Get the buttons and content sections by their IDs.
         const toggleNewsButton = document.getElementById('toggleNewsButton');
-        const toggleImagesButton = document.getElementById('toggleImagesButton');
         const toggleWhatsButton = document.getElementById('toggleWhatsButton');
+        const toggleNewImagesButton = document.getElementById('toggleNewImagesButton');
+        const toggleOldImagesButton = document.getElementById('toggleOldImagesButton');
+        const toggle3DModelsButton = document.getElementById('toggle3DModelsButton');
+        
         const newsContent = document.getElementById('newsContent');
-        const imagesContent = document.getElementById('imagesContent');
+        const imagesContentContainer = document.getElementById('imagesContentContainer');
+        const newImagesContent = document.getElementById('newImagesContent');
+        const oldImagesContent = document.getElementById('oldImagesContent');
+        const models3DContent = document.getElementById('3dModelsContent');
         const whatsContent = document.getElementById('whatsContent');
 
         // Function to hide all content sections.
         const hideAllSections = () => {
             newsContent.classList.add('hidden');
-            imagesContent.classList.add('hidden');
+            imagesContentContainer.classList.add('hidden');
             whatsContent.classList.add('hidden');
+        };
+
+        const hideAllImageSubSections = () => {
+            newImagesContent.classList.add('hidden');
+            oldImagesContent.classList.add('hidden');
+            models3DContent.classList.add('hidden');
         };
 
         // Add a click event listener to the "News" button.
@@ -157,17 +206,33 @@
             hideAllSections();
             newsContent.classList.remove('hidden');
         });
-
-        // Add a click event listener to the "Images" button.
-        toggleImagesButton.addEventListener('click', () => {
-            hideAllSections();
-            imagesContent.classList.remove('hidden');
-        });
-
+        
         // Add a click event listener to the "What's LEIDIA" button.
         toggleWhatsButton.addEventListener('click', () => {
             hideAllSections();
             whatsContent.classList.remove('hidden');
+        });
+
+        // Add click event listeners for the Images submenu.
+        toggleNewImagesButton.addEventListener('click', () => {
+            hideAllSections();
+            imagesContentContainer.classList.remove('hidden');
+            hideAllImageSubSections();
+            newImagesContent.classList.remove('hidden');
+        });
+
+        toggleOldImagesButton.addEventListener('click', () => {
+            hideAllSections();
+            imagesContentContainer.classList.remove('hidden');
+            hideAllImageSubSections();
+            oldImagesContent.classList.remove('hidden');
+        });
+
+        toggle3DModelsButton.addEventListener('click', () => {
+            hideAllSections();
+            imagesContentContainer.classList.remove('hidden');
+            hideAllImageSubSections();
+            models3DContent.classList.remove('hidden');
         });
     </script>
 
